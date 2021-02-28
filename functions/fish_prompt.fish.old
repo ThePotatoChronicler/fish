@@ -1,0 +1,37 @@
+function fish_prompt --description 'Informative prompt (custom)'
+
+    # Here so the testing doesn't overwrite it
+    set last_pipestatus "$pipestatus"
+
+    # Changes prompt sign if you're root or not
+    if test "$USER" = root
+        set prompt_sign '#'
+    else
+        set prompt_sign '$'
+    end
+
+    # Changes color of prompt sign if last command exited with a status other than 0
+    if test 0 -eq $last_pipestatus
+        set status_color "$fish_color_cwd"
+    else
+        set status_color "$fish_color_status"
+    end
+
+    # Sets the pipestatus string
+    set pipestatus_string (__fish_print_pipestatus "[" "] " "|" (set_color $fish_color_status) \
+                          (set_color --bold $fish_color_status) $last_pipestatus)
+
+    # Replaces $HOME in $PWD with ~
+    set pwdr (string replace "$HOME" '~' "$PWD")
+
+    # If the pipestatus string is empty, sets it to a space,
+    # so that the prompt doesn't break
+    if test -z "$pipestatus_string"
+        set pipestatus_string " "
+    end
+
+    # Prints it. kinda confusing with that large amount of formatting
+    printf '[%s%s%s@%s%s%s] %s%s %s\f\r%s%s ' (set_color yellow) \
+        $USER (set_color bryellow) (set_color brcyan) (prompt_hostname) (set_color white)\
+        (set_color $fish_color_cwd) $pwdr $pipestatus_string (set_color $status_color) $prompt_sign 
+end
