@@ -1,7 +1,7 @@
-## fish
+# fish
 My fish shell configurations files
 
-# Contains
+## Contains
 - config.fish
   - Aliases
   - Environmental variables
