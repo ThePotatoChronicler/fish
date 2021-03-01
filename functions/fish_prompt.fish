@@ -34,7 +34,7 @@ function fish_prompt --description 'Rainbow prompt :)'
 
     # Prints the user's name
     for i in (string split '' $USER)
-        set_color ( hsl_to_rgb $RAINBOW_PROMPT -h )
+        set_color ( $__fish_config_dir/hsl_to_rgb/hsl_to_rgb_c $RAINBOW_PROMPT 1 0.5 )
         set RAINBOW_PROMPT (math "$RAINBOW_PROMPT +1.5") # Change the number to set how fast the color changes
         printf "$i"
     end

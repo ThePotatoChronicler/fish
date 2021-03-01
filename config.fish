@@ -21,14 +21,18 @@ end
 # requires the fortune command/program
 fortune
 
+# Spacevim
+alias spacevim='command nvim -u ~/.SpaceVim/vimrc'
+alias v='spacevim'
+
 # Aliasses
-alias fishconf='nvim ~/.config/fish/config.fish'
+alias fishconf='spacevim ~/.config/fish/config.fish'
+alias spaceconf='spacevim ~/.SpaceVim.d/init.toml'
 alias xclip='xclip -sel clip'
 alias mv='mv -v'
 alias grep='grep --color=auto'
 alias rm='rmtrash'
 alias rmdir='rmdirtrash'
 alias nmcli='nmcli --color=auto --ask'
-alias vim='nvim'
-alias rclua='nvim ~/.config/awesome/rc.lua' # For quick editing of awesome
-alias theme='nvim ~/.config/awesome/theme.lua' # For quick editing of awesome's theme
+alias rclua='spacevim ~/.config/awesome/rc.lua' # For quick editing of awesome
+alias theme='spacevim ~/.config/awesome/theme.lua' # For quick editing of awesome's theme
