@@ -1,11 +1,17 @@
 # fish
 My fish shell configurations files
+  + HSL to RGB conversion C program
 
 ## Contains
 - config.fish
   - Aliases
   - Environmental variables
   - Random fortune (Doesn't check if you have the fortune command)
+- hsl_to_rgb
+  - hsl_to_rgb.c
+    - C program which converts HSL color to RGB
+    - Made by yours truly
+  - Makefile
 - Functions
   - fish_prompt.fish
     - Rainbow prompt (depends on the hsl_to_rgb.fish function)
