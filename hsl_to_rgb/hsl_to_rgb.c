@@ -5,25 +5,25 @@
 int main(int argc, char **argv) {
     if (argc != 4) {
         printf("Not enough arguments!\n");
-        return 2;
+        return 1;
     }
-    double H = (fmod(atof(argv[1]), 360)) / 60.0;
-    double S = atof(argv[2]);
-    double L = atof(argv[3]);
-    double a = 2 * L - 1;
+    float H = (fmod(atof(argv[1]), 360)) / 60.0;
+    float S = atof(argv[2]);
+    float L = atof(argv[3]);
+    float a = 2 * L - 1;
     if (a < 0) {
         a = -a;
     }
-    double C = (1 - a) * S;
-    double res = fmod(H, 2.0) - 1;
+    float C = (1 - a) * S;
+    float res = fmod(H, 2.0) - 1;
     if (res < 0) {
         res = -res;
     }
-    double X = C * (1 - res);
+    float X = C * (1 - res);
 
-    double R1 = 0;
-    double G1 = 0;
-    double B1 = 0;
+    float R1 = 0;
+    float G1 = 0;
+    float B1 = 0;
     switch ( (int) floor(H) ) {
         case 0:
             R1 = C;
@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
             B1 = X;
             break;
     }
-    double m = L - C / 2.0;
+    float m = L - C / 2.0;
     int R, G, B;
     R = floor((R1 + m) * 255);
     G = floor((G1 + m) * 255);
